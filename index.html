@@ -5,6 +5,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>SnoozeSOC | Cybersecurity That Is Fast Asleep (Parody)</title>
 <meta name="description" content="SnoozeSOC is a parody security company where nothing ever gets protected. Made by Harsh R.">
+<meta name="author" content="Harsh R.">
+<meta property="og:type" content="website"><meta property="og:url" content="https://harshsec.xyz">
+<meta property="og:title" content="SnoozeSOC | We protect you while we sleep"><meta property="og:description" content="A parody cybersecurity company with a sleepy analyst, a flatline dashboard and an attack simulator. Built by Harsh R.">
+<meta property="og:image" content="https://harshsec.xyz/og.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image"><meta name="twitter:image" content="https://harshsec.xyz/og.png">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>😴</text></svg>">
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
 <style>
@@ -129,26 +134,59 @@ footer.f2 a{color:var(--amber)}
 .ck div{margin-top:12px;display:flex;gap:8px}
 .ck .btn{padding:9px 16px;font-size:13px}
 
+.by{display:inline-flex;align-items:center;gap:10px;margin-top:26px;color:var(--mute);font-size:13px;text-decoration:none;border:1px solid var(--line);border-radius:99px;padding:6px 16px 6px 6px;background:#10143a88;transition:border-color .2s}
+.by:hover{border-color:var(--amber)}.by b{color:var(--ink)}
+.av{width:26px;height:26px;border-radius:50%;background:linear-gradient(135deg,var(--amber),var(--vio));color:#1a1405;display:grid;place-items:center;font-weight:700;flex:none}
+.byl{font-size:12px;font-weight:400;color:var(--mute);margin-left:6px}
+.maker{border:1px solid var(--line);border-radius:26px;padding:44px;background:linear-gradient(135deg,#1c1a5a,#10143a);display:grid;grid-template-columns:auto 1fr;gap:28px;align-items:center;margin:20px 0 60px}
+.maker .av{width:84px;height:84px;font-size:38px}
+.maker h2{font-size:clamp(28px,4vw,42px);margin:0 0 8px;max-width:none}
+.maker p{color:var(--mute);margin-bottom:18px;max-width:56ch}
+.lk{display:flex;gap:10px;flex-wrap:wrap}.lk a{text-decoration:none}
+.badge{position:fixed;right:16px;bottom:16px;z-index:12;font-size:12px;color:var(--ink);background:#10143af0;border:1px solid var(--line);border-radius:99px;padding:8px 14px;text-decoration:none;backdrop-filter:blur(6px);transition:border-color .2s}
+.badge:hover{border-color:var(--amber)}.badge b{color:var(--amber)}
+.an-w{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}
+.anb{background:radial-gradient(circle at 50% 60%,#2a2160,#10143a);border:1px solid var(--line);border-radius:26px;padding:20px;cursor:pointer;width:100%;transition:border-color .2s}
+.anb:hover{border-color:var(--amber)}
+.anb svg{width:100%;height:auto;display:block}
+#hd{transform-origin:185px 112px;animation:nod 4.5s ease-in-out infinite}
+@keyframes nod{0%,100%{transform:rotate(0)}40%,60%{transform:rotate(11deg) translateY(3px)}}
+.jolt #hd{animation:jolt .5s ease-out}
+@keyframes jolt{0%{transform:rotate(11deg)}35%{transform:rotate(-8deg) translateY(-8px)}100%{transform:rotate(0)}}
+.zq text{fill:#8b7bff;font:700 20px "JetBrains Mono",monospace;opacity:0;animation:zq 3.6s infinite}
+.zq text:nth-child(2){animation-delay:.8s}.zq text:nth-child(3){animation-delay:1.6s}
+@keyframes zq{0%{opacity:0;transform:translate(0,8px)}30%{opacity:.9}100%{opacity:0;transform:translate(14px,-22px)}}
+.jolt .zq{display:none}
+#bub{opacity:0;transition:opacity .2s}
+.stat{display:flex;justify-content:space-between;padding:12px 0;border-top:1px solid var(--line);color:var(--mute);font-size:15px}.stat b{color:var(--ink);font-family:"JetBrains Mono",monospace}
+.alert{position:fixed;inset:0;pointer-events:none;z-index:4;box-shadow:inset 0 0 140px #ff6b6b77;opacity:0;transition:opacity .3s}
+body.attack .alert{opacity:1;animation:bl .7s infinite}
+body.attack .dash{border-color:var(--bad);box-shadow:0 40px 120px #ff6b6b44}
+body.attack .dot{background:var(--bad);box-shadow:0 0 14px var(--bad)}
+body.attack .log em{color:var(--bad)}
+@keyframes bl{50%{opacity:.35}}
+@media(max-width:860px){.maker{grid-template-columns:1fr;padding:28px}.an-w{grid-template-columns:1fr}.badge,.byl{display:none}}
 @media(max-width:860px){.g3,.steps,.feat,.plans,.q,.bt{grid-template-columns:1fr}.plan.hot{padding:28px}nav a{display:none}nav a:last-child{display:inline}h1{letter-spacing:-2px}}
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}}
 </style>
 </head>
 <body>
-<canvas id="sky"></canvas><div class="glow"></div>
+<canvas id="sky"></canvas><div class="glow"></div><div class="alert"></div>
 
 <div class="tick m"><div>BREAKING: Nothing happened today &nbsp;•&nbsp; Hackers reportedly "too busy" to attack our clients &nbsp;•&nbsp; Analyst hits snooze for the 4th time &nbsp;•&nbsp; Firewall replaced by a polite sign saying "Please don't" &nbsp;•&nbsp; Password "admin123" declared "pretty solid" &nbsp;•&nbsp; SnoozeSOC stock steady at ₹0 &nbsp;•&nbsp;</div></div>
 
 <div class="w">
-<nav><div class="logo">Snooze<i>SOC</i></div><div><a href="#how">How it works</a><a href="#pricing">Pricing</a><a href="#faq">FAQ</a><a href="https://harshsec.in">Real site →</a></div></nav>
+<nav><div class="logo">Snooze<i>SOC</i><span class="m byl">by Harsh R.</span></div><div><a href="#how">How it works</a><a href="#pricing">Pricing</a><a href="#faq">FAQ</a><a href="https://harshsec.in">Real site →</a></div></nav>
 
 <header class="hero">
 <span class="pill m"><b>PARODY</b> a fake security company, for laughs</span>
 <h1>We protect you while we sleep.</h1>
 <p class="sub">SnoozeSOC is a <b>pretend cybersecurity company</b> where one tired analyst watches your network. <b>The joke:</b> real security teams run 24/7. Ours runs whenever he wakes up.</p>
 <div class="cta"><button class="btn" id="scan">Run a free scan</button><button class="btn g" id="demo">Book a demo</button></div>
+<a class="by m" href="https://harshsec.in"><span class="av">H</span><span>Built by <b>Harsh R.</b> &nbsp;cybersecurity student &amp; guitarist</span></a>
 
 <div class="stage"><div class="dash" id="dash">
-<div class="dh m"><span><span class="dot"></span>LIVE DASHBOARD &nbsp;(everything is fine, probably)</span><span id="clk"></span></div>
+<div class="dh m"><span><span class="dot"></span><span id="dt">LIVE DASHBOARD &nbsp;(everything is fine, probably)</span></span><span id="clk"></span></div>
 <div class="g3">
 <div class="k"><small>Threats blocked</small><b id="tb">0</b></div>
 <div class="k"><small>Analyst status</small><b id="st" class="zz">Zzz...</b></div>
@@ -157,10 +195,24 @@ footer.f2 a{color:var(--amber)}
 <div class="ch"><small class="m"><span>Attack activity (last 60 sec)</span><span id="cm">flat = good</span></small><canvas id="ecg"></canvas></div>
 <div class="bt">
 <div class="log m" id="log"></div>
-<div class="wake"><b style="color:var(--ink);font-size:16px">Something wrong?</b><button class="btn" id="wake">Wake the analyst</button><span class="m" id="wk">Times snoozed today: 0</span></div>
+<div class="wake"><b style="color:var(--ink);font-size:16px">Something wrong?</b><button class="btn" id="wake">Wake the analyst</button><button class="btn g" id="atk">Simulate attack</button><span class="m" id="wk">Times snoozed today: 0</span></div>
 </div>
 </div></div>
 </header>
+
+<section id="analyst"><div class="an-w">
+<button class="anb rv" id="anb" aria-label="Click to wake the analyst"><svg viewBox="0 0 360 250" role="img" aria-label="A sleepy analyst at a desk">
+<rect x="30" y="188" width="300" height="14" rx="7" fill="#262c70"/><rect x="60" y="202" width="10" height="46" fill="#1b2060"/><rect x="290" y="202" width="10" height="46" fill="#1b2060"/>
+<path d="M120 180q6-68 65-74 59 6 65 74z" fill="#8b7bff"/>
+<g id="hd"><circle cx="185" cy="80" r="30" fill="#d9a577"/><path d="M155 76q4-34 32-32 26 0 28 30-14-14-30-14-16 0-30 16z" fill="#1d1a3a"/><path d="M170 82q6 6 12 0M190 82q6 6 12 0" stroke="#2b1b12" stroke-width="3" fill="none" stroke-linecap="round"/><ellipse cx="186" cy="98" rx="5" ry="4" fill="#6b3a2a"/></g>
+<rect x="132" y="120" width="106" height="58" rx="6" fill="#0b0f35" stroke="#262c70" stroke-width="3"/><polyline points="142,150 228,150" stroke="#7be0a4" stroke-width="2.5" fill="none"/><rect x="116" y="178" width="138" height="10" rx="5" fill="#1b2060"/>
+<rect x="272" y="160" width="26" height="28" rx="5" fill="#ffb454"/><path d="M298 168q14 2 0 16" stroke="#ffb454" stroke-width="4" fill="none"/>
+<g class="zq"><text x="222" y="62">z</text><text x="236" y="46">Z</text><text x="252" y="28">Z</text></g>
+<g id="bub"><rect x="214" y="6" width="130" height="34" rx="12" fill="#f1ecdf"/><text x="226" y="28" font-size="14" font-family="JetBrains Mono,monospace" fill="#0a0d2a" font-weight="700">I'm up! I'm up!</text></g>
+</svg></button>
+<div class="rv"><div class="eyebrow m">The team</div><h2>Meet your analyst.</h2><p class="lead" style="margin-bottom:22px">He is our entire security department. Click him to see what happens when you wake him up.</p>
+<div class="stat"><span>Hours slept on shift</span><b>7.5</b></div><div class="stat"><span>Alerts read</span><b>0</b></div><div class="stat"><span>Coffee cups today</span><b>7</b></div><div class="stat"><span>Average reply time</span><b>∞</b></div></div>
+</div></section>
 
 <section id="how">
 <div class="rv"><div class="eyebrow m">How it works</div><h2>Three simple steps. Zero results.</h2><p class="lead">Here is everything a "SnoozeSOC customer" gets. Spoiler: it is not much.</p></div>
@@ -208,17 +260,19 @@ footer.f2 a{color:var(--amber)}
 </section>
 
 <div class="end rv"><h2>Sleep well. We won't.</h2><div class="cta"><button class="btn" id="scan2">Run a free scan</button><a class="btn g" style="text-decoration:none" href="https://harshsec.in">See the real portfolio</a></div></div>
+<div class="maker rv"><span class="av">H</span><div><h2>Built by Harsh R.</h2><p>Cybersecurity student, web developer and guitarist. I build security projects, tools, and the occasional joke site like this one.</p><div class="lk"><a class="btn" href="https://harshsec.in">Portfolio</a><a class="btn g" href="https://github.com/rootharsh">GitHub</a><a class="btn g" href="https://instagram.com/harsh.sec">Instagram</a></div></div></div>
 </div>
 
-<footer class="f2"><div class="w">© 2026 SnoozeSOC (not a real company). A satirical parody project for fun and portfolio purposes. No security service is provided, no data is collected, and it is not affiliated with any real vendor.</div></footer>
+<footer class="f2"><div class="w">© 2026 SnoozeSOC (not a real company). Designed and built by <a href="https://harshsec.in">Harsh R.</a> A satirical parody project for fun and portfolio purposes. No security service is provided, no data is collected, and it is not affiliated with any real vendor.</div></footer>
 
+<a class="badge m" href="https://harshsec.in">Built by <b>Harsh R.</b></a>
 <div class="ov" id="ov"><div class="md"><h3 id="mt">Scanning your network...</h3><div class="pb"><i id="pi"></i></div><div class="res m" id="rs"></div><button class="btn g" id="cl" style="margin-top:12px">Close</button></div></div>
 <div class="ck" id="ck" role="dialog" aria-label="Cookie notice"><p>We use cookies to remember that you accepted cookies. This is very important to us.</p><div><button class="btn" data-ck>Accept</button><button class="btn g" data-ck>Accept</button></div></div>
 <div id="toast" role="status"></div>
 
 <script>
 const $=id=>document.getElementById(id),rm=matchMedia('(prefers-reduced-motion:reduce)').matches;
-const toast=t=>{const e=$('toast');e.textContent=t;e.classList.add('on');clearTimeout(toast.t);toast.t=setTimeout(()=>e.classList.remove('on'),3400)};
+let atk=false,aI,aT;const toast=t=>{const e=$('toast');e.textContent=t;e.classList.add('on');clearTimeout(toast.t);toast.t=setTimeout(()=>e.classList.remove('on'),3400)};
 document.querySelectorAll('[data-ck]').forEach(b=>b.onclick=()=>{$('ck').remove();toast('Saved. The answer was always "Accept".')});
 $('demo').onclick=()=>toast('Demo booked. Nobody will attend, including us.');
 
@@ -247,14 +301,14 @@ const clk=()=>$('clk').textContent=new Date().toLocaleTimeString('en-GB',{timeZo
 const ec=$('ecg'),ex=ec.getContext('2d');let pts=[],blip=0;
 function ers(){ec.width=ec.clientWidth*devicePixelRatio;ec.height=ec.clientHeight*devicePixelRatio;pts=Array(Math.floor(ec.clientWidth/4)).fill(0)}
 ers();addEventListener('resize',ers);
-setInterval(()=>{let v=(Math.random()-.5)*.06;if(blip>0){v=[.5,.9,.3,-.4,0][5-blip];blip--}else if(Math.random()<.018){blip=5;$('cm').textContent='wait... was that a bird?';setTimeout(()=>$('cm').textContent='flat = good',2600)}
+setInterval(()=>{let v=(Math.random()-.5)*(atk?1.9:.06);if(blip>0){v=[.5,.9,.3,-.4,0][5-blip];blip--}else if(Math.random()<.018){blip=5;$('cm').textContent='wait... was that a bird?';setTimeout(()=>$('cm').textContent='flat = good',2600)}
 pts.push(v);pts.shift();const w=ec.width,h=ec.height,d=devicePixelRatio;ex.clearRect(0,0,w,h);
 ex.strokeStyle='#262c70';ex.lineWidth=1;ex.beginPath();ex.moveTo(0,h/2);ex.lineTo(w,h/2);ex.stroke();
-ex.strokeStyle='#7be0a4';ex.lineWidth=2*d;ex.shadowColor='#7be0a4';ex.shadowBlur=10;ex.beginPath();pts.forEach((p,i)=>{const x=i*4*d,y=h/2-p*h*.42;i?ex.lineTo(x,y):ex.moveTo(x,y)});ex.stroke();ex.shadowBlur=0},60);
+const cc=atk?'#ff6b6b':'#7be0a4';ex.strokeStyle=cc;ex.lineWidth=2*d;ex.shadowColor=cc;ex.shadowBlur=10;ex.beginPath();pts.forEach((p,i)=>{const x=i*4*d,y=h/2-p*h*.42;i?ex.lineTo(x,y):ex.moveTo(x,y)});ex.stroke();ex.shadowBlur=0},60);
 
 /* log feed */
 const L=['Port scan detected. It was us.','Alert #4,021 closed by pressing Ctrl+W','Firewall rule added: "be nice"','Login from 127.0.0.1 (your own PC)','Analyst status: staring at ceiling','Patch scheduled for "someday"','Malware found: file named final_FINAL_v3.pdf','Phishing email blocked. Reply: "lol"','Backup verified (we think)','Coffee refill requested. ETA: soon','SIEM says "warning". We say "noted".'];
-const lg=$('log');let li=0;const add=()=>{const d=document.createElement('div');d.innerHTML='<em>'+new Date().toLocaleTimeString('en-GB')+'</em>  '+L[li++%L.length];lg.appendChild(d);while(lg.children.length>7)lg.firstChild.remove()};
+const A=['ALERT: unknown device on network','ALERT: 4,096 failed logins','ALERT: data leaving the server','Notifying analyst... no answer','Calling analyst... voicemail','Escalating to: the office cat','Firewall: "I cannot even"','Attacker: "hello? anyone?"'];const lg=$('log');let li=0;const add=()=>{const d=document.createElement('div');d.innerHTML='<em>'+new Date().toLocaleTimeString('en-GB')+'</em>  '+(atk?A:L)[li++%(atk?A:L).length];lg.appendChild(d);while(lg.children.length>7)lg.firstChild.remove()};
 for(let i=0;i<4;i++)add();setInterval(add,2300);
 
 /* coffee drains, analyst naps */
@@ -264,6 +318,12 @@ let c=60;setInterval(()=>{c+=Math.random()<.72?-1:4;c=Math.max(3,Math.min(95,c))
 let sn=0;const msgs=['Analyst says: "five more minutes."','Analyst is typing... then stopped.','Analyst is awake! (eyes still closed)','Analyst left a note: "back after lunch."','Analyst muted the alarm. Again.'];
 $('wake').onclick=()=>{sn++;$('wk').textContent='Times snoozed today: '+sn;const s=$('st');s.textContent='Awake?!';s.classList.remove('zz');s.style.color='var(--amber)';toast(msgs[(sn-1)%msgs.length]);setTimeout(()=>{s.textContent='Zzz...';s.classList.add('zz');s.style.color=''},2200)};
 
+/* attack simulation */
+$('atk').onclick=()=>{if(atk)return;atk=true;document.body.classList.add('attack');$('dt').innerHTML='⚠ UNDER ATTACK &nbsp;(analyst notified: asleep)';aI=setInterval(add,260);
+setTimeout(()=>toast('Alarm sent to analyst. Reply received: "zzz".'),900);
+aT=setTimeout(()=>{atk=false;clearInterval(aI);document.body.classList.remove('attack');$('dt').innerHTML='LIVE DASHBOARD &nbsp;(everything is fine, probably)';toast('Attack over. Threats blocked: still 0. Analyst slept through it.')},7000)};
+/* click the analyst */
+$('anb').onclick=()=>{const b=$('anb');b.classList.add('jolt');$('bub').style.opacity=1;setTimeout(()=>{b.classList.remove('jolt');$('bub').style.opacity=0},2200)};
 /* fake scan */
 function scan(){const o=$('ov'),r=$('rs'),p=$('pi');o.classList.add('on');r.innerHTML='';p.style.transition='none';p.style.width='0';$('mt').textContent='Scanning your network...';
 const out=['Checking firewall... found a sticky note','Checking passwords... "password123" x14','Checking Wi-Fi... named "FBI Van 3"','Checking Chrome... flagged as suspicious','Checking your mom\'s WhatsApp forwards... 4,000 threats'];
