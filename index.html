@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SnoozeSOC | Cybersecurity That Is Fast Asleep (Parody)</title>
+<meta name="description" content="SnoozeSOC is a parody security company where nothing ever gets protected. Made by Harsh R.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>😴</text></svg>">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#070a24;--panel:#10143a;--line:#262c70;--ink:#f1ecdf;--mute:#a3a6d0;--amber:#ffb454;--vio:#8b7bff;--ok:#7be0a4;--bad:#ff6b6b;--mx:50%;--my:30%}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font:400 18px/1.6 "Bricolage Grotesque",system-ui,sans-serif;overflow-x:hidden}
+canvas#sky{position:fixed;inset:0;width:100%;height:100%;z-index:0;pointer-events:none}
+.glow{position:fixed;inset:0;z-index:0;pointer-events:none;background:radial-gradient(520px circle at var(--mx) var(--my),#8b7bff26,transparent 70%)}
+.w{max-width:1100px;margin:0 auto;padding:0 24px;position:relative;z-index:1}
+.m{font-family:"JetBrains Mono",ui-monospace,monospace}
+:focus-visible{outline:2px solid var(--amber);outline-offset:3px}
+
+/* ticker */
+.tick{position:relative;z-index:2;background:#ffb45414;border-bottom:1px solid var(--line);overflow:hidden;white-space:nowrap;font-size:13px;color:var(--amber);padding:8px 0}
+.tick div{display:inline-block;padding-left:100%;animation:tk 48s linear infinite}
+@keyframes tk{to{transform:translateX(-100%)}}
+
+nav{display:flex;justify-content:space-between;align-items:center;padding:24px 0}
+.logo{font-weight:800;font-size:24px;letter-spacing:-.5px}
+.logo i{font-style:normal;color:var(--amber)}
+nav a{color:var(--mute);text-decoration:none;margin-left:24px;font-size:15px;transition:color .2s}
+nav a:hover{color:var(--ink)}
+
+/* hero */
+.hero{padding:50px 0 40px;text-align:center}
+.pill{display:inline-flex;gap:8px;align-items:center;border:1px solid var(--line);background:#10143a99;border-radius:99px;padding:7px 16px;font-size:13px;color:var(--mute);backdrop-filter:blur(6px)}
+.pill b{color:var(--amber);font-weight:700}
+h1{font-size:clamp(46px,8.5vw,104px);line-height:.95;font-weight:800;letter-spacing:-3px;margin:26px auto 0;max-width:13ch;
+background:linear-gradient(100deg,var(--ink) 20%,var(--amber) 45%,var(--vio) 60%,var(--ink) 80%);background-size:250% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:sh 7s ease-in-out infinite}
+@keyframes sh{0%,100%{background-position:100% 0}50%{background-position:0 0}}
+.sub{color:var(--mute);margin:26px auto 34px;max-width:52ch;font-size:20px}
+.sub b{color:var(--ink);font-weight:500}
+.btn{font:700 15px "JetBrains Mono",monospace;background:var(--amber);color:#1a1405;border:0;padding:15px 24px;border-radius:12px;cursor:pointer;transition:transform .2s,box-shadow .2s;box-shadow:0 0 0 #ffb45400}
+.btn:hover{transform:translateY(-3px);box-shadow:0 12px 40px #ffb45455}
+.btn.g{background:transparent;color:var(--ink);border:1px solid var(--line);box-shadow:none}
+.btn.g:hover{border-color:var(--amber)}
+.cta{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+
+/* dashboard */
+.stage{perspective:1200px;margin-top:64px}
+.dash{background:linear-gradient(180deg,#151a4a,#0e1236);border:1px solid var(--line);border-radius:22px;padding:22px;text-align:left;box-shadow:0 40px 120px #000b,0 0 0 1px #ffffff08 inset;transition:transform .15s ease-out;transform-style:preserve-3d}
+.dh{display:flex;justify-content:space-between;gap:10px;font-size:12px;color:var(--mute);margin-bottom:18px;flex-wrap:wrap}
+.dot{display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--ok);margin-right:8px;box-shadow:0 0 12px var(--ok)}
+.g3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.k{background:#070a2488;border:1px solid var(--line);border-radius:14px;padding:16px}
+.k small{display:block;color:var(--mute);font-size:13px;margin-bottom:6px}
+.k b{font:700 32px/1.1 "JetBrains Mono",monospace;display:block;transition:color .3s}
+.k b.zz{color:var(--vio)}
+.bar{height:6px;background:var(--line);border-radius:6px;margin-top:12px;overflow:hidden}
+.bar i{display:block;height:100%;width:60%;background:var(--amber);transition:width 1s linear,background .3s}
+.ch{margin-top:14px;background:#070a2488;border:1px solid var(--line);border-radius:14px;padding:14px 16px 6px}
+.ch small{color:var(--mute);font-size:13px;display:flex;justify-content:space-between}
+canvas#ecg{width:100%;height:110px;display:block}
+.bt{display:grid;grid-template-columns:1.3fr 1fr;gap:14px;margin-top:14px}
+.log{height:132px;overflow:hidden;font-size:12px;line-height:1.75;color:var(--mute);background:#070a2488;border:1px solid var(--line);border-radius:14px;padding:12px 14px}
+.log div{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;animation:in .4s ease-out}
+@keyframes in{from{opacity:0;transform:translateY(8px)}}
+.log em{font-style:normal;color:var(--amber)}
+.wake{background:#070a2488;border:1px dashed var(--line);border-radius:14px;padding:16px;display:flex;flex-direction:column;justify-content:center;gap:10px;font-size:14px;color:var(--mute)}
+.wake .btn{padding:12px 16px;font-size:14px}
+.wake span{font-size:12px}
+
+/* sections */
+section{padding:100px 0}
+.eyebrow{color:var(--amber);font-size:14px;margin-bottom:14px}
+h2{font-size:clamp(34px,5vw,58px);letter-spacing:-2px;line-height:1;max-width:16ch;margin-bottom:18px}
+.lead{color:var(--mute);max-width:56ch;margin-bottom:44px}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.step{border:1px solid var(--line);border-radius:20px;padding:26px;background:linear-gradient(180deg,#10143acc,#0a0e2acc);position:relative;transition:transform .3s,border-color .3s}
+.step:hover{transform:translateY(-6px);border-color:var(--amber)}
+.step .n{font:700 13px "JetBrains Mono",monospace;color:var(--amber)}
+.step h3{font-size:24px;margin:10px 0 8px;letter-spacing:-.5px}
+.step p{color:var(--mute);font-size:16px}
+.step .ic{font-size:34px;margin-bottom:6px}
+.feat{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.f{display:flex;gap:16px;padding:22px;border:1px solid var(--line);border-radius:18px;background:#10143a88;transition:border-color .3s,transform .3s}
+.f:hover{border-color:var(--vio);transform:translateY(-4px)}
+.f .ic{font-size:30px;line-height:1}
+.f h3{font-size:20px;letter-spacing:-.3px}
+.f p{color:var(--mute);font-size:15.5px;margin-top:4px}
+.f .real{display:block;margin-top:8px;font-size:12px;color:var(--vio)}
+.plans{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;align-items:center}
+.plan{border:1px solid var(--line);border-radius:22px;padding:28px;background:#10143acc}
+.plan.hot{border-color:var(--amber);padding:38px 28px;background:linear-gradient(180deg,#2a2160,#10143a);box-shadow:0 30px 80px #ffb45422}
+.plan h3{font-size:22px}
+.price{font:700 44px "JetBrains Mono",monospace;margin:10px 0 14px}
+.price small{font-size:14px;color:var(--mute);font-weight:400}
+.plan ul{list-style:none;padding:0;font-size:15.5px;color:var(--mute)}
+.plan li{padding:9px 0;border-top:1px solid var(--line)}
+.q{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.qc{border:1px solid var(--line);border-radius:22px;padding:30px;background:#10143a88}
+.qc p{font-size:23px;line-height:1.35;letter-spacing:-.5px}
+.qc footer{margin-top:16px;font-size:13px;color:var(--mute)}
+details{border-top:1px solid var(--line);padding:20px 0}
+summary{cursor:pointer;font-size:20px;font-weight:500;list-style:none;display:flex;justify-content:space-between;gap:16px}
+summary::after{content:"+";color:var(--amber);font-size:26px;line-height:1;transition:transform .3s}
+details[open] summary::after{transform:rotate(45deg)}
+details p{color:var(--mute);margin-top:12px;max-width:62ch}
+.end{text-align:center;padding:120px 0}
+.end h2{margin:0 auto 28px;max-width:14ch}
+footer.f2{border-top:1px solid var(--line);padding:34px 0 70px;color:var(--mute);font-size:13px;position:relative;z-index:1}
+footer.f2 a{color:var(--amber)}
+
+/* reveal */
+.rv{opacity:0;transform:translateY(28px);transition:opacity .8s cubic-bezier(.2,.7,.2,1),transform .8s cubic-bezier(.2,.7,.2,1)}
+.rv.in{opacity:1;transform:none}
+
+/* modal / toast / cookie */
+.ov{position:fixed;inset:0;background:#030515cc;backdrop-filter:blur(8px);z-index:20;display:none;align-items:center;justify-content:center;padding:20px}
+.ov.on{display:flex}
+.md{background:var(--panel);border:1px solid var(--line);border-radius:22px;padding:28px;width:min(520px,100%)}
+.md h3{font-size:24px;margin-bottom:14px}
+.pb{height:8px;background:var(--line);border-radius:8px;overflow:hidden;margin-bottom:16px}
+.pb i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--amber),var(--vio))}
+.res{min-height:150px;font-size:14px;color:var(--mute)}
+.res div{padding:5px 0;animation:in .4s ease-out}
+.res b{color:var(--bad)}
+#toast{position:fixed;left:50%;bottom:30px;transform:translate(-50%,30px);background:var(--ink);color:#0a0d2a;padding:14px 22px;border-radius:14px;opacity:0;pointer-events:none;transition:.35s;z-index:30;font-weight:500;max-width:92vw;text-align:center}
+#toast.on{opacity:1;transform:translate(-50%,0)}
+.ck{position:fixed;left:16px;bottom:16px;max-width:430px;background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:18px;z-index:15;font-size:14px;box-shadow:0 20px 60px #000a}
+.ck div{margin-top:12px;display:flex;gap:8px}
+.ck .btn{padding:9px 16px;font-size:13px}
+
+@media(max-width:860px){.g3,.steps,.feat,.plans,.q,.bt{grid-template-columns:1fr}.plan.hot{padding:28px}nav a{display:none}nav a:last-child{display:inline}h1{letter-spacing:-2px}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+<canvas id="sky"></canvas><div class="glow"></div>
+
+<div class="tick m"><div>BREAKING: Nothing happened today &nbsp;•&nbsp; Hackers reportedly "too busy" to attack our clients &nbsp;•&nbsp; Analyst hits snooze for the 4th time &nbsp;•&nbsp; Firewall replaced by a polite sign saying "Please don't" &nbsp;•&nbsp; Password "admin123" declared "pretty solid" &nbsp;•&nbsp; SnoozeSOC stock steady at ₹0 &nbsp;•&nbsp;</div></div>
+
+<div class="w">
+<nav><div class="logo">Snooze<i>SOC</i></div><div><a href="#how">How it works</a><a href="#pricing">Pricing</a><a href="#faq">FAQ</a><a href="https://harshsec.in">Real site →</a></div></nav>
+
+<header class="hero">
+<span class="pill m"><b>PARODY</b> a fake security company, for laughs</span>
+<h1>We protect you while we sleep.</h1>
+<p class="sub">SnoozeSOC is a <b>pretend cybersecurity company</b> where one tired analyst watches your network. <b>The joke:</b> real security teams run 24/7. Ours runs whenever he wakes up.</p>
+<div class="cta"><button class="btn" id="scan">Run a free scan</button><button class="btn g" id="demo">Book a demo</button></div>
+
+<div class="stage"><div class="dash" id="dash">
+<div class="dh m"><span><span class="dot"></span>LIVE DASHBOARD &nbsp;(everything is fine, probably)</span><span id="clk"></span></div>
+<div class="g3">
+<div class="k"><small>Threats blocked</small><b id="tb">0</b></div>
+<div class="k"><small>Analyst status</small><b id="st" class="zz">Zzz...</b></div>
+<div class="k"><small>Coffee left</small><b id="cf">60%</b><div class="bar"><i id="cb"></i></div></div>
+</div>
+<div class="ch"><small class="m"><span>Attack activity (last 60 sec)</span><span id="cm">flat = good</span></small><canvas id="ecg"></canvas></div>
+<div class="bt">
+<div class="log m" id="log"></div>
+<div class="wake"><b style="color:var(--ink);font-size:16px">Something wrong?</b><button class="btn" id="wake">Wake the analyst</button><span class="m" id="wk">Times snoozed today: 0</span></div>
+</div>
+</div></div>
+</header>
+
+<section id="how">
+<div class="rv"><div class="eyebrow m">How it works</div><h2>Three simple steps. Zero results.</h2><p class="lead">Here is everything a "SnoozeSOC customer" gets. Spoiler: it is not much.</p></div>
+<div class="steps">
+<div class="step rv"><div class="ic">📝</div><span class="n m">STEP 1</span><h3>You sign up</h3><p>Hand over your company name, your network details, and your trust. We accept all three.</p></div>
+<div class="step rv"><div class="ic">😴</div><span class="n m">STEP 2</span><h3>We "monitor"</h3><p>Our analyst keeps a dashboard open in one browser tab. The tab is also playing music.</p></div>
+<div class="step rv"><div class="ic">🎉</div><span class="n m">STEP 3</span><h3>Nothing happens</h3><p>No alerts, no reports, no updates. We call this "a clean record."</p></div>
+</div>
+</section>
+
+<section>
+<div class="rv"><div class="eyebrow m">Features</div><h2>Fancy words. Silly meaning.</h2><p class="lead">Real security products love buzzwords. Here is what ours really mean.</p></div>
+<div class="feat">
+<div class="f rv"><div class="ic">🤖</div><div><h3>AI-powered detection</h3><p>Our AI, Intern-1, reads every alert and replies "looks fine."</p><span class="real m">Real SOCs: ML models + human review</span></div></div>
+<div class="f rv"><div class="ic">🔒</div><div><h3>Zero-trust security</h3><p>We trust nobody, including our own firewall. We ask requests nicely to go away.</p><span class="real m">Real zero-trust: verify every access request</span></div></div>
+<div class="f rv"><div class="ic">🌐</div><div><h3>Threat intelligence</h3><p>Our feed comes from group chats and one Reddit guy who is always sure.</p><span class="real m">Real intel: curated feeds and research</span></div></div>
+<div class="f rv"><div class="ic">🚨</div><div><h3>Incident response</h3><p>If something breaks, we respond within 3 to 5 business weeks.</p><span class="real m">Real IR: minutes to hours, with a playbook</span></div></div>
+</div>
+</section>
+
+<section id="pricing">
+<div class="rv"><div class="eyebrow m">Pricing</div><h2>Honest pricing.</h2><p class="lead">You pay nothing. You get nothing. Everyone is happy.</p></div>
+<div class="plans">
+<div class="plan rv"><h3>Hobby</h3><div class="price">₹0<small> /month</small></div><ul><li>Monitoring when we remember</li><li>One email alert, maybe</li><li>Support from our cat</li></ul></div>
+<div class="plan hot rv"><h3>Business</h3><div class="price">₹0<small> /month*</small></div><ul><li>Everything in Hobby</li><li>A dedicated analyst (he naps)</li><li>Priority ignoring</li><li>*Terms: we are not a company</li></ul></div>
+<div class="plan rv"><h3>Enterprise</h3><div class="price">Call us</div><ul><li>We will not pick up</li><li>Custom compliance PDFs</li><li>Free chai at the demo</li></ul></div>
+</div>
+</section>
+
+<section>
+<div class="q">
+<div class="qc rv"><p>"Since switching to SnoozeSOC we have had exactly zero breaches. We would not know otherwise."</p><footer class="m">A totally real CISO (fake name pending)</footer></div>
+<div class="qc rv"><p>"I asked for a pentest report and got a very supportive voice note."</p><footer class="m">Anonymous, obviously</footer></div>
+</div>
+</section>
+
+<section id="faq">
+<div class="rv"><div class="eyebrow m">FAQ</div><h2>Questions nobody asked.</h2></div>
+<div class="rv">
+<details><summary>Is this a real security company?</summary><p>No. SnoozeSOC is a parody made for fun. Please do not give it any real data, passwords, or network access.</p></details>
+<details><summary>So what is the actual joke?</summary><p>Real Security Operations Centers (SOCs) watch for attacks around the clock. This one is "always monitoring" but mostly asleep. It mocks over-hyped security marketing.</p></details>
+<details><summary>What happens during a breach?</summary><p>Step 1: stay calm. Step 2: wake the analyst. Step 3: he hits snooze. Go back to step 1.</p></details>
+<details><summary>Who made this?</summary><p>Harsh R., a cybersecurity student. See the real work at <a href="https://harshsec.in" style="color:var(--amber)">harshsec.in</a>.</p></details>
+</div>
+</section>
+
+<div class="end rv"><h2>Sleep well. We won't.</h2><div class="cta"><button class="btn" id="scan2">Run a free scan</button><a class="btn g" style="text-decoration:none" href="https://harshsec.in">See the real portfolio</a></div></div>
+</div>
+
+<footer class="f2"><div class="w">© 2026 SnoozeSOC (not a real company). A satirical parody project for fun and portfolio purposes. No security service is provided, no data is collected, and it is not affiliated with any real vendor.</div></footer>
+
+<div class="ov" id="ov"><div class="md"><h3 id="mt">Scanning your network...</h3><div class="pb"><i id="pi"></i></div><div class="res m" id="rs"></div><button class="btn g" id="cl" style="margin-top:12px">Close</button></div></div>
+<div class="ck" id="ck" role="dialog" aria-label="Cookie notice"><p>We use cookies to remember that you accepted cookies. This is very important to us.</p><div><button class="btn" data-ck>Accept</button><button class="btn g" data-ck>Accept</button></div></div>
+<div id="toast" role="status"></div>
+
+<script>
+const $=id=>document.getElementById(id),rm=matchMedia('(prefers-reduced-motion:reduce)').matches;
+const toast=t=>{const e=$('toast');e.textContent=t;e.classList.add('on');clearTimeout(toast.t);toast.t=setTimeout(()=>e.classList.remove('on'),3400)};
+document.querySelectorAll('[data-ck]').forEach(b=>b.onclick=()=>{$('ck').remove();toast('Saved. The answer was always "Accept".')});
+$('demo').onclick=()=>toast('Demo booked. Nobody will attend, including us.');
+
+/* scroll reveal */
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.15});
+document.querySelectorAll('.rv').forEach((e,i)=>{e.style.transitionDelay=(i%3)*90+'ms';io.observe(e)});
+
+/* cursor glow + dashboard tilt */
+addEventListener('pointermove',e=>{document.documentElement.style.setProperty('--mx',e.clientX+'px');document.documentElement.style.setProperty('--my',e.clientY+'px')});
+const dash=$('dash');
+if(!rm&&matchMedia('(hover:hover)').matches){dash.parentElement.addEventListener('pointermove',e=>{const r=dash.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;dash.style.transform=`rotateY(${x*5}deg) rotateX(${-y*4}deg)`});dash.parentElement.addEventListener('pointerleave',()=>dash.style.transform='')}
+
+/* starry sky + occasional shooting star */
+const sky=$('sky'),sx=sky.getContext('2d');let W,H,stars=[],shoot=null;
+function rs(){W=sky.width=innerWidth;H=sky.height=innerHeight;stars=Array.from({length:Math.min(140,W/9)},()=>({x:Math.random()*W,y:Math.random()*H,r:Math.random()*1.3+.2,p:Math.random()*6}))}
+rs();addEventListener('resize',rs);
+(function draw(t){sx.clearRect(0,0,W,H);stars.forEach(s=>{sx.globalAlpha=.25+.55*Math.abs(Math.sin(t/1800+s.p));sx.fillStyle='#fff';sx.beginPath();sx.arc(s.x,s.y,s.r,0,7);sx.fill()});
+if(!shoot&&Math.random()<.002)shoot={x:Math.random()*W*.8,y:Math.random()*H*.4,l:0};
+if(shoot){shoot.x+=9;shoot.y+=4;shoot.l++;sx.globalAlpha=1-shoot.l/40;sx.strokeStyle='#ffb454';sx.lineWidth=1.6;sx.beginPath();sx.moveTo(shoot.x,shoot.y);sx.lineTo(shoot.x-60,shoot.y-26);sx.stroke();if(shoot.l>40)shoot=null}
+if(!rm)requestAnimationFrame(draw)})(0);
+
+/* clock */
+const clk=()=>$('clk').textContent=new Date().toLocaleTimeString('en-GB',{timeZone:'Asia/Kolkata'})+' IST';clk();setInterval(clk,1000);
+
+/* flatline chart */
+const ec=$('ecg'),ex=ec.getContext('2d');let pts=[],blip=0;
+function ers(){ec.width=ec.clientWidth*devicePixelRatio;ec.height=ec.clientHeight*devicePixelRatio;pts=Array(Math.floor(ec.clientWidth/4)).fill(0)}
+ers();addEventListener('resize',ers);
+setInterval(()=>{let v=(Math.random()-.5)*.06;if(blip>0){v=[.5,.9,.3,-.4,0][5-blip];blip--}else if(Math.random()<.018){blip=5;$('cm').textContent='wait... was that a bird?';setTimeout(()=>$('cm').textContent='flat = good',2600)}
+pts.push(v);pts.shift();const w=ec.width,h=ec.height,d=devicePixelRatio;ex.clearRect(0,0,w,h);
+ex.strokeStyle='#262c70';ex.lineWidth=1;ex.beginPath();ex.moveTo(0,h/2);ex.lineTo(w,h/2);ex.stroke();
+ex.strokeStyle='#7be0a4';ex.lineWidth=2*d;ex.shadowColor='#7be0a4';ex.shadowBlur=10;ex.beginPath();pts.forEach((p,i)=>{const x=i*4*d,y=h/2-p*h*.42;i?ex.lineTo(x,y):ex.moveTo(x,y)});ex.stroke();ex.shadowBlur=0},60);
+
+/* log feed */
+const L=['Port scan detected. It was us.','Alert #4,021 closed by pressing Ctrl+W','Firewall rule added: "be nice"','Login from 127.0.0.1 (your own PC)','Analyst status: staring at ceiling','Patch scheduled for "someday"','Malware found: file named final_FINAL_v3.pdf','Phishing email blocked. Reply: "lol"','Backup verified (we think)','Coffee refill requested. ETA: soon','SIEM says "warning". We say "noted".'];
+const lg=$('log');let li=0;const add=()=>{const d=document.createElement('div');d.innerHTML='<em>'+new Date().toLocaleTimeString('en-GB')+'</em>  '+L[li++%L.length];lg.appendChild(d);while(lg.children.length>7)lg.firstChild.remove()};
+for(let i=0;i<4;i++)add();setInterval(add,2300);
+
+/* coffee drains, analyst naps */
+let c=60;setInterval(()=>{c+=Math.random()<.72?-1:4;c=Math.max(3,Math.min(95,c));$('cf').textContent=c+'%';$('cb').style.width=c+'%';$('cb').style.background=c<15?'var(--bad)':'var(--amber)'},1400);
+
+/* wake the analyst */
+let sn=0;const msgs=['Analyst says: "five more minutes."','Analyst is typing... then stopped.','Analyst is awake! (eyes still closed)','Analyst left a note: "back after lunch."','Analyst muted the alarm. Again.'];
+$('wake').onclick=()=>{sn++;$('wk').textContent='Times snoozed today: '+sn;const s=$('st');s.textContent='Awake?!';s.classList.remove('zz');s.style.color='var(--amber)';toast(msgs[(sn-1)%msgs.length]);setTimeout(()=>{s.textContent='Zzz...';s.classList.add('zz');s.style.color=''},2200)};
+
+/* fake scan */
+function scan(){const o=$('ov'),r=$('rs'),p=$('pi');o.classList.add('on');r.innerHTML='';p.style.transition='none';p.style.width='0';$('mt').textContent='Scanning your network...';
+const out=['Checking firewall... found a sticky note','Checking passwords... "password123" x14','Checking Wi-Fi... named "FBI Van 3"','Checking Chrome... flagged as suspicious','Checking your mom\'s WhatsApp forwards... 4,000 threats'];
+requestAnimationFrame(()=>{p.style.transition='width 4.5s linear';p.style.width='100%'});
+out.forEach((t,i)=>setTimeout(()=>{const d=document.createElement('div');d.innerHTML=t;r.appendChild(d)},700+i*850));
+setTimeout(()=>{$('mt').textContent='Scan complete';const d=document.createElement('div');d.innerHTML='<b>Result: you are fine.</b> We have no idea. Fix cost: ₹0.';r.appendChild(d)},5200)}
+$('scan').onclick=scan;$('scan2').onclick=scan;$('cl').onclick=()=>$('ov').classList.remove('on');
+$('ov').onclick=e=>{if(e.target.id==='ov')$('ov').classList.remove('on')};
+</script>
+</body>
+</html>
